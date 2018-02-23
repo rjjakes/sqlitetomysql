@@ -21,13 +21,18 @@ def _replace(line):
     line = line.replace("boolean DEFAULT 'f'", "integer DEFAULT 0")
     line = line.replace("DEFAULT 't'", "DEFAULT 1")
     line = line.replace("DEFAULT 'f'", "DEFAULT 0")
-    line = line.replace(",'t'", ",1")    
+    line = line.replace(",'t'", ",1")
     line = line.replace(",'f'", ",0")
+    line = line.replace("COLLATE NOCASE_UTF8", "")
     line = line.replace("integer DEFAULT 0 NOT NULL", "integer NOT NULL DEFAULT 0")
     line = line.replace("integer DEFAULT 1 NOT NULL", "integer NOT NULL DEFAULT 1")
     line = line.replace("varchar ", "varchar(255) ")
     line = line.replace("varchar,", "varchar(255),")
     line = line.replace("varchar)", "varchar(255))")
+    line = re.sub('CHECK \((.*?)\)', '', line)
+    line = re.sub('CREATE INDEX.*?;', '', line)
+    line = re.sub('CREATE UNIQUE INDEX.*?;', '', line)
+
     return line
 
 
