@@ -29,6 +29,7 @@ def _replace(line):
     line = line.replace("varchar ", "varchar(255) ")
     line = line.replace("varchar,", "varchar(255),")
     line = line.replace("varchar)", "varchar(255))")
+    line = line.replace(" BLOB ", " LONGBLOB ")
     line = re.sub('CHECK \((.*?)\)', '', line)
     line = re.sub('CREATE INDEX.*?;', '', line)
     line = re.sub('CREATE UNIQUE INDEX.*?;', '', line)
