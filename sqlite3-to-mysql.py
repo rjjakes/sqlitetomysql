@@ -16,9 +16,6 @@ def _replace(line):
         return
 #    line = line.replace("INTEGER PRIMARY KEY", "INTEGER PRIMARY KEY")
     line = line.replace("AUTOINCREMENT", "AUTO_INCREMENT")
-    line = line.replace("boolean", "integer")
-    line = line.replace("boolean DEFAULT 't'", "integer DEFAULT 1")
-    line = line.replace("boolean DEFAULT 'f'", "integer DEFAULT 0")
     line = line.replace("DEFAULT 't'", "DEFAULT 1")
     line = line.replace("DEFAULT 'f'", "DEFAULT 0")
     line = line.replace(",'t'", ",1")
